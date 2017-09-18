@@ -3,8 +3,8 @@ import './header.scss';
 
 const Header = () => (
   <div id="header-component">
-    <h1>React-Redux template</h1>
-    <p>Whole process working, with routing (v4), basic and async actions, ...</p>
+    <h1>ToRead App</h1>
+    <p>To keep tracks on what you're reading, because I know remembering things is hard for you..</p>
   </div>
     );
 
