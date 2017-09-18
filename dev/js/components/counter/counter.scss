@@ -1,0 +1,23 @@
+@import '../../../scss/_vars.scss';
+
+#counter-component{
+  .counter-tool{
+    width : 300px;
+
+    button{
+      background-color : $primary;
+      color : #FFF;
+    }
+
+    .counter{
+      font-size: 2em;
+      padding : 30px;
+
+
+    }
+  }
+
+  .log{
+    text-align: center;
+  }
+}
