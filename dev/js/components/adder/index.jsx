@@ -42,7 +42,7 @@ class Adder extends React.Component {
             onChange={this.defineState}
           />
           <div className="flex-content">
-            <div className="flex-container flex-row">
+            <div className="flex-container flex-col">
               <div className="flex-content">
                 <abbr title="Add your line ! :)">
                   <button
@@ -51,14 +51,14 @@ class Adder extends React.Component {
                     name="lineName"
                     onClick={this.addLine}
                   >
-                    <span className="glyphicon glyphicon-plus" />
+                    <span className="glyphicon glyphicon-ok" />
                   </button>
                 </abbr>
               </div>
               <div className="flex-content">
                 <abbr title="Erase the form... :(">
                   <button
-                    className="btn btn-warning btn-circle btn-lg"
+                    className="btn btn-secondary btn-circle btn-xl"
                     onClick={this.reset}
                   >
                     <span className="glyphicon glyphicon-refresh" />

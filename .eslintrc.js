@@ -13,5 +13,6 @@ module.exports = {
 		"react/no-unused-prop-types": [1, {skipShapeProps: true }],
 		"no-plusplus": 0,
 		"quotes": 0,
+		"react/no-array-index-key": 1,
 	},
 };

@@ -1,3 +1,29 @@
-#listholder-component{
+@import '../../../scss/_vars.scss';
 
+#listholder-component{
+  li{
+    width : 50%;
+    border-bottom : 1px dashed $veryClearNiceGray;
+    list-style-type: none;
+    margin : auto;
+
+    .flex-content{
+      padding : 10px;
+      margin-left : 0;
+      &:first-child{
+        width : 10%;
+      }
+
+      &:nth-child(2){
+        width : 80%;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        text-align : left;
+      }
+
+      &:last-child{
+        width : 10%;
+      }
+    }
+  }
 }
