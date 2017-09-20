@@ -10,6 +10,7 @@ export const getMovies = () => fetch('https://facebook.github.io/react-native/mo
     error => console.log('An error occured : ', error),
   );
 
+
 export default getMovies;
 // export const increaseCounter = (number) => {
 //   console.log('api Called, number increased.');
