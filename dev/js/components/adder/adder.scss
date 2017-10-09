@@ -1,6 +1,8 @@
 #adder-component{
   .flex-content{
     padding : 5px;
+    margin : auto 20px;
+
 
     &:first-child{
       margin-right : 0;
@@ -13,5 +15,9 @@
 
   input{
     width : 300px;
+
+    &[type=number]{
+      width : 100px;
+    }
   }
 }

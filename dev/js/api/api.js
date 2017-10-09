@@ -1,23 +1,36 @@
 import fetch from 'isomorphic-fetch';
 
-// Here is the place where you call your API to get datas to send in the store
-// Let's just increment our counter for the example
+const BASE_PATH = "http://localhost:8080/api";
 
-// Get all movies
-export const getMovies = () => fetch('https://facebook.github.io/react-native/movies.json')
+const err = error => console.log('An error occured : ', error);
+
+export const getAll = () => fetch(`${BASE_PATH}/items`)
   .then(
     response => response.json(),
-    error => console.log('An error occured : ', error),
+    error => err(error),
   );
 
+export const addOne = (item) => {
+  const init = {
+    method: "POST",
+    header: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item),
+  };
 
-export default getMovies;
-// export const increaseCounter = (number) => {
-//   console.log('api Called, number increased.');
-//   return number + 1;
-// };
+  console.log('item = ', item);
 
-// export const decreaseCounter = (number) => {
-//   console.log('api Called, number decreased.');
-//   return number - 1;
-// };
+  return fetch(`${BASE_PATH}/items`, init)
+  .then(
+    response => response.json(),
+    error => err(error),
+  );
+};
+
+export const deleteOne = id => fetch(`${BASE_PATH}/items/${id}`)
+  .then(
+    response => response.json(),
+    error => err(error),
+  );

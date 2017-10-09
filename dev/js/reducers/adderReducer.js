@@ -2,9 +2,8 @@ import * as types from '../actions/ActionTypes';
 
 function adderReducer(state = [], action) {
   switch (action.type) {
-    case types.ADD_LINE:
-      console.log('my state = ', state);
-      return [...state, action.line];
+    case types.ADD_ITEM:
+      return [...state, action.item];
     default:
       return state;
   }

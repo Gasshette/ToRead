@@ -9,7 +9,7 @@ const Displayer = props => (
       {props.children}
     </div>
   </div>
-  );
+);
 
 /*eslint-disable */
 Displayer.propTypes = {

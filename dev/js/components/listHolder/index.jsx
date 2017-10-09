@@ -18,8 +18,8 @@ class ListHolder extends React.Component {
   }
 
   listBuilder() {
-    return this.props.lines.map((line, index) => (
-      <li key={index + line.name}>
+    return this.props.items.map(item => (
+      <li key={item.id}>
         <div className="flex-container">
 
           <div className="flex-content">
@@ -28,31 +28,36 @@ class ListHolder extends React.Component {
             </button>
           </div>
 
-          <div className="flex-content">{line.name}</div>
-          <div className="flext-content"><input type="number" className="form-control" /></div>
+          <div className="flex-content">{item.name}</div>
+          <div className="flext-content"><input type="number" className="form-control" defaultValue={item.chapterNumber} /></div>
         </div>
       </li>
     ));
   }
 
   render() {
-    return (
-      <div id="listholder-component">
-        <ul>
-          {this.listBuilder()}
-        </ul>
-      </div>
-    );
+    let content;
+    if (this.props.items.length > 0) {
+      content = (
+        <div id="listholder-component">
+          <ul>
+            {this.listBuilder()}
+          </ul>
+        </div>
+      );
+    } else {
+      content = <div>Loading...</div>;
+    }
+    return content;
   }
 }
 
-
 ListHolder.propTypes = {
-  lines: PropTypes.array, //eslint-disable-line
-};
-
-ListHolder.defaultProps = {
-  lines: {},
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ])).isRequired,
 };
 
 export default ListHolder;

@@ -6,6 +6,6 @@ const Header = () => (
     <h1>ToRead App</h1>
     <p>To keep tracks on what you're reading, because I know remembering things is hard for you..</p>
   </div>
-    );
+);
 
 export default Header;

@@ -10,18 +10,18 @@ class Adder extends React.Component {
     // Binding function used to trigger our actions.
     // A you when you're using a compass to find the north,
     // event (here, onClick) need to know their context to execute correctly
-    this.addLine = this.addLine.bind(this);
+    this.addItem = this.addItem.bind(this);
     this.reset = this.reset.bind(this);
     this.defineState = this.defineState.bind(this);
 
     this.state = { name: '' };
   }
 
-  addLine() {
-    this.props.addLine(this.state);
+  addItem() {
+    this.props.addItem(this.state);
   }
 
-  reset() { //eslint-disable-line
+  reset() {
     $('#adder-component input').val('');
     $('#adder-component input').attr('value', '');
     this.setState({ name: '' }, console.log(this.state));
@@ -38,10 +38,13 @@ class Adder extends React.Component {
           <input
             className="flex-content form-control input-lg"
             type="Text"
-            placeholder="Name your line.."
+            placeholder="Name"
             onChange={this.defineState}
           />
+          <input type="number" className="flex-content form-control input-lg" defaultValue="0" min="0" />
+          <input type="number" className="flex-content form-control input-lg" step="0.1" defaultValue="1" min="0.1" />
           <div className="flex-content">
+
             <div className="flex-container flex-col">
               <div className="flex-content">
                 <abbr title="Add your line ! :)">
@@ -49,7 +52,7 @@ class Adder extends React.Component {
                     className="btn btn-success btn-circle btn-xl"
                     id="lineName"
                     name="lineName"
-                    onClick={this.addLine}
+                    onClick={this.addItem}
                   >
                     <span className="glyphicon glyphicon-ok" />
                   </button>
@@ -75,7 +78,7 @@ class Adder extends React.Component {
 
 
 Adder.propTypes = {
-  addLine: PropTypes.func.isRequired,
+  addItem: PropTypes.func.isRequired,
 };
 
 // Adder.defaultProps = {

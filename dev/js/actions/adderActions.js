@@ -1,11 +1,16 @@
 import * as types from './ActionTypes';
+import * as ToReadAPI from '../api/api';
 
-export const addLine = line => ({
-  type: types.ADD_LINE,
-  line,
+export const addItemSuccess = item => ({
+  type: types.ADD_ITEM,
+  item,
 });
 
-export const deleteLine = id => ({
-  type: types.DELETE_LINE,
+export const addItem = item => dispatch => ToReadAPI.addOne(item)
+  .then(json => dispatch(addItemSuccess(json)));
+
+
+export const deleteItem = id => ({
+  type: types.DELETE_ITEM,
   id,
 });

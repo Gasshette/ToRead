@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import ListHolder from '../components/listHolder';
 
 const mapStateToProp = state => ({
-  lines: state.lines,
+  items: state.items,
 });
 
 // "{}" around our action are IMPORTANT. Without it, your action will be "undefined"

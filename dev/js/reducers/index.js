@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import adderReducer from './adderReducer';
+// import adderReducer from './adderReducer';
+import listHolderReducer from './listHolderReducer';
 
 /*
  * We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -7,7 +8,8 @@ import adderReducer from './adderReducer';
  * */
 
 const allReducers = combineReducers({
-  lines: adderReducer,
+  items: listHolderReducer,
+
 });
 
 export default allReducers;
