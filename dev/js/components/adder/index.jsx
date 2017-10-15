@@ -33,45 +33,36 @@ class Adder extends React.Component {
 
   render() {
     return (
-      <div id="adder-component">
-        <div className="flex-container">
-          <input
-            className="flex-content form-control input-lg"
-            type="Text"
-            placeholder="Name"
-            onChange={this.defineState}
-          />
-          <input type="number" className="flex-content form-control input-lg" defaultValue="0" min="0" />
-          <input type="number" className="flex-content form-control input-lg" step="0.1" defaultValue="1" min="0.1" />
-          <div className="flex-content">
+      <div id="adder-component" className="form-input form-inline">
+        <input
+          className="form-control input-lg"
+          type="Text"
+          placeholder="Name"
+          onChange={this.defineState}
+        />
+        <input type="number" className="form-control input-lg" defaultValue="0" min="0" />
+        <input type="number" className="form-control input-lg" step="0.1" defaultValue="1" min="0.1" />
 
-            <div className="flex-container flex-col">
-              <div className="flex-content">
-                <abbr title="Add your line ! :)">
-                  <button
-                    className="btn btn-success btn-circle btn-xl"
-                    id="lineName"
-                    name="lineName"
-                    onClick={this.addItem}
-                  >
-                    <span className="glyphicon glyphicon-ok" />
-                  </button>
-                </abbr>
-              </div>
-              <div className="flex-content">
-                <abbr title="Erase the form... :(">
-                  <button
-                    className="btn btn-secondary btn-circle btn-xl"
-                    onClick={this.reset}
-                  >
-                    <span className="glyphicon glyphicon-refresh" />
-                  </button>
-                </abbr>
-              </div>
-            </div>
-          </div>
-        </div>
+        <abbr title="Add your line ! :)">
+          <button
+            className="btn btn-success btn-lg"
+            id="lineName"
+            name="lineName"
+            onClick={this.addItem}
+          >
+            <span className="glyphicon glyphicon-ok" />
+          </button>
+        </abbr>
+        <abbr title="Erase the form... :(">
+          <button
+            className="btn btn-default btn-lg"
+            onClick={this.reset}
+          >
+            <span className="glyphicon glyphicon-refresh" />
+          </button>
+        </abbr>
       </div>
+
     );
   }
 }

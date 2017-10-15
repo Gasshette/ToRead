@@ -18,8 +18,8 @@ class ListHolder extends React.Component {
   }
 
   listBuilder() {
-    return this.props.items.map(item => (
-      <li key={item.id}>
+    return this.props.items._embedded.items.map(item => (
+      <li key={item._links.item.href}>
         <div className="flex-container">
 
           <div className="flex-content">
@@ -37,7 +37,7 @@ class ListHolder extends React.Component {
 
   render() {
     let content;
-    if (this.props.items.length > 0) {
+    if (JSON.stringify(this.props.items) !== JSON.stringify({})) {
       content = (
         <div id="listholder-component">
           <ul>
@@ -53,8 +53,9 @@ class ListHolder extends React.Component {
 }
 
 ListHolder.propTypes = {
-  items: PropTypes.arrayOf(
+  items: PropTypes.objectOf(
     PropTypes.oneOfType([
+      PropTypes.object,
       PropTypes.string,
       PropTypes.number,
     ])).isRequired,

@@ -1,23 +1,12 @@
 #adder-component{
-  .flex-content{
-    padding : 5px;
-    margin : auto 20px;
+padding : 50px 25px;
+margin-bottom : 20px;
 
-
-    &:first-child{
-      margin-right : 0;
-    }
-
-    &:last-child{
-      margin-left : 0;
-    }
-  }
-
-  input{
-    width : 300px;
+  input, button{
+    margin: 0px 4px;
 
     &[type=number]{
-      width : 100px;
+      width: 130px;
     }
   }
 }

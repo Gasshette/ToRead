@@ -6,28 +6,27 @@ const err = error => console.log('An error occured : ', error);
 
 export const getAll = () => fetch(`${BASE_PATH}/items`)
   .then(
-    response => response.json(),
-    error => err(error),
-  );
-
-export const addOne = (item) => {
-  const init = {
-    method: "POST",
-    header: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+    (response) => {
+      if (!response.ok) {
+        Promise.reject(response);
+      }
+      return response.json();
     },
-    body: JSON.stringify(item),
-  };
-
-  console.log('item = ', item);
-
-  return fetch(`${BASE_PATH}/items`, init)
-  .then(
-    response => response.json(),
     error => err(error),
   );
-};
+
+  // add one or more, doesn't matter since api is getting our request body as a List<Item>
+export const addOne = item => fetch(`${BASE_PATH}/items`, {
+  method: "POST",
+  headers: new Headers({
+    'Content-Type': 'application/json',
+  }),
+  body: JSON.stringify(item),
+})
+.then(
+  response => response.json(),
+  error => err(error),
+);
 
 export const deleteOne = id => fetch(`${BASE_PATH}/items/${id}`)
   .then(
