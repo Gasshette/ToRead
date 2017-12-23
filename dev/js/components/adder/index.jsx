@@ -27,8 +27,12 @@ class Adder extends React.Component {
     this.setState({ name: '' });
   }
 
-  defineState(e) {
-    this.setState({ name: e.target.value });
+  defineState() {
+    this.setState({
+      name: $("input[name=itemName").val(),
+      chapterNumber: $("input[name=chapterNumber").val(),
+      step: $("input[name=step").val(),
+    });
   }
 
   render() {
@@ -38,10 +42,11 @@ class Adder extends React.Component {
           className="form-control input-lg"
           type="Text"
           placeholder="Name"
+          name="itemName"
           onChange={this.defineState}
         />
-        <input type="number" className="form-control input-lg" defaultValue="0" min="0" />
-        <input type="number" className="form-control input-lg" step="0.1" defaultValue="1" min="0.1" />
+        <input type="number" className="form-control input-lg" name="chapterNumber" defaultValue="0" min="0" onChange={this.defineState} />
+        <input type="number" className="form-control input-lg" name="step" step="0.1" defaultValue="1" min="0.1" onChange={this.defineState} />
 
         <abbr title="Add your line ! :)">
           <button
@@ -53,7 +58,7 @@ class Adder extends React.Component {
             <span className="glyphicon glyphicon-ok" />
           </button>
         </abbr>
-        <abbr title="Erase the form... :(">
+        <abbr title="Erase the form... :/">
           <button
             className="btn btn-default btn-lg"
             onClick={this.reset}

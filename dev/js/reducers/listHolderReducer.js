@@ -5,6 +5,7 @@ function listHolderReducer(state = {}, action) {
   const newState = state;
 
   switch (action.type) {
+    case types.DELETE_ITEM:
     case types.GET_ALL_ITEMS:
       return action.items;
     case types.ADD_ITEM:

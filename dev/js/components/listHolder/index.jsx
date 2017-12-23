@@ -15,6 +15,7 @@ class ListHolder extends React.Component {
   }
 
   delete(e) {
+    this.props.deleteItem(e.target.dataset.remove);
   }
 
   listBuilder() {
@@ -23,13 +24,13 @@ class ListHolder extends React.Component {
         <div className="flex-container">
 
           <div className="flex-content">
-            <button className="btn btn-warning" onClick={this.delete}>
+            <button className="btn btn-warning" onClick={this.delete} data-remove={JSON.stringify(item)} >
               <span className="glyphicon glyphicon-remove" />
             </button>
           </div>
 
           <div className="flex-content">{item.name}</div>
-          <div className="flext-content"><input type="number" className="form-control" defaultValue={item.chapterNumber} /></div>
+          <div className="flext-content"><input type="number" step={item.step} className="form-control" defaultValue={item.chapterNumber} /></div>
         </div>
       </li>
     ));
@@ -53,6 +54,7 @@ class ListHolder extends React.Component {
 }
 
 ListHolder.propTypes = {
+  deleteItem: PropTypes.func.isRequired,
   items: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.object,

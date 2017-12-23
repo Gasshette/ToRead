@@ -28,8 +28,8 @@ export const addOne = item => fetch(`${BASE_PATH}/items`, {
   error => err(error),
 );
 
-export const deleteOne = id => fetch(`${BASE_PATH}/items/${id}`)
+export const deleteOne = item => fetch(`${JSON.parse(item)._links.item.href}`, { method: "DELETE" })
   .then(
-    response => response.json(),
+    () => item,
     error => err(error),
   );
