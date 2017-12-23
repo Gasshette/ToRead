@@ -1,12 +1,11 @@
-import * as types from '../actions/ActionTypes';
+// import * as types from '../actions/ActionTypes';
 
-function adderReducer(state = [], action) {
-  switch (action.type) {
-    case types.ADD_ITEM:
-      return [...state, action.item];
-    default:
-      return state;
-  }
-}
+// function adderReducer(state = [], action) {
+//   switch (action.type) {
 
-export default adderReducer;
+//     default:
+//       return state;
+//   }
+// }
+
+// export default adderReducer;
