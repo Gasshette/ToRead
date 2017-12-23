@@ -28,6 +28,22 @@ export const addOne = item => fetch(`${BASE_PATH}/items`, {
   error => err(error),
 );
 
+export const updateOne = (item) => {
+  const myItem = JSON.parse(item); // Why am i forced to do this ?
+
+  return fetch(`${JSON.parse(item)._links.item.href}`, {
+    method: "PATCH",
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify(myItem),
+  })
+.then(
+  response => response.json(),
+  error => err(error),
+);
+};
+
 export const deleteOne = item => fetch(`${JSON.parse(item)._links.item.href}`, { method: "DELETE" })
   .then(
     () => item,

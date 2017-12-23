@@ -12,6 +12,17 @@ export const getAllItems = () => dispatch =>
   .then(json => dispatch(getAllItemsSuccess(json)),
   );
 
+export const updateItemSuccess = items => ({
+  type: types.UPDATE_ITEM,
+  items,
+});
+
+export const updateItem = item => dispatch =>
+ToReadAPI.updateOne(item)
+.then(() => ToReadAPI.getAll()
+  .then(newJson => dispatch(updateItemSuccess(newJson))),
+);
+
 export const deleteItemSuccess = items => ({
   type: types.DELETE_ITEM,
   items,
@@ -20,10 +31,7 @@ export const deleteItemSuccess = items => ({
 export const deleteItem = item => dispatch =>
 ToReadAPI.deleteOne(item)
 .then(() => ToReadAPI.getAll()
-  .then((newJson) => {
-    console.log("newjson = ", newJson);
-    dispatch(deleteItemSuccess(newJson));
-  }),
+  .then(newJson => dispatch(deleteItemSuccess(newJson))),
 );
 
 export default getAllItems;
