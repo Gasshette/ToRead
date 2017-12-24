@@ -23,14 +23,12 @@ class Adder extends React.Component {
   }
 
   reset() {
-    $('#adder-component input').val('');
-    $('#adder-component input').attr('value', '');
-    this.setState({ name: '' });
+    this.setState({ name: '', chapterNumber: 0, step: 0 });
   }
 
   defineState() {
     this.setState({
-      name: $("input[name=itemName").val(),
+      name: $("input[name=itemName").val().substr(0, 1).toUpperCase() + $("input[name=itemName").val().substr(1),
       chapterNumber: $("input[name=chapterNumber").val(),
       step: $("input[name=step").val(),
     });
