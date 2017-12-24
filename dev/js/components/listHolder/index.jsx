@@ -3,6 +3,7 @@ import $ from 'jquery';
 import PropTypes from 'prop-types';
 
 import './listHolder.scss';
+import './mobileListHolder.scss';
 
 class ListHolder extends React.Component {
   constructor() {
@@ -43,7 +44,7 @@ class ListHolder extends React.Component {
           </div>
 
           <div className="flex-content">{item.name}</div>
-          <div className="flext-content"><input type="number" step={item.step} className="form-control" defaultValue={item.chapterNumber} onChange={this.update} /></div>
+          <div className="flext-content"><input type="number" step={item.step} className="form-control" name="chapter-number" defaultValue={item.chapterNumber} onChange={this.update} /></div>
         </div>
       </li>
     ));

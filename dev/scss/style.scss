@@ -32,6 +32,15 @@
   flex-direction: column-reverse;
 }
 
+abbr{
+  text-decoration: none !important;
+  border-bottom : none !important;
+}
+
+.unbreakable{
+  white-space: nowrap;
+}
+
 
 /* rounded bootstrap button */
 .btn-circle {

@@ -4,7 +4,7 @@ const BASE_PATH = "http://localhost:8080/api";
 
 const err = error => console.log('An error occured : ', error);
 
-export const getAll = () => fetch(`${BASE_PATH}/items?sort=name`)
+export const getAll = () => fetch(`${BASE_PATH}/items?sort=name&size=999`)
   .then(
     (response) => {
       if (!response.ok) {

@@ -1,8 +1,19 @@
 @import '../../../scss/_vars.scss';
 
 #listholder-component{
+  ul{
+    // -moz-column-count: 4;
+    // -moz-column-gap: 20px;
+    // -webkit-column-count: 4;
+    // -webkit-column-gap: 20px;
+    // column-count: 4;
+    // column-gap: 20px;
+    text-align : left;
+  }
   li{
     width : 50%;
+    min-width : 450px;
+    display : inline-block;
     border-bottom : 1px dashed $veryClearNiceGray;
     list-style-type: none;
     margin : auto;
@@ -24,6 +35,10 @@
       &:last-child{
         width : 10%;
       }
+    }
+
+    input[name=chapter-number]{
+      margin-top : 10px;
     }
   }
 }

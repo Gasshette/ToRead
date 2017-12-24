@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 import './adder.scss';
+import './mobileAdder.scss';
 
 class Adder extends React.Component {
   constructor() {
@@ -38,34 +39,37 @@ class Adder extends React.Component {
   render() {
     return (
       <div id="adder-component" className="form-input form-inline">
-        <input
-          className="form-control input-lg"
-          type="Text"
-          placeholder="Name"
-          name="itemName"
-          onChange={this.defineState}
-        />
-        <input type="number" className="form-control input-lg" name="chapterNumber" defaultValue="0" min="0" onChange={this.defineState} />
-        <input type="number" className="form-control input-lg" name="step" step="0.1" defaultValue="1" min="0.1" onChange={this.defineState} />
-
-        <abbr title="Add your line ! :)">
-          <button
-            className="btn btn-success btn-lg"
-            id="lineName"
-            name="lineName"
-            onClick={this.addItem}
-          >
-            <span className="glyphicon glyphicon-ok" />
-          </button>
-        </abbr>
-        <abbr title="Erase the form... :/">
-          <button
-            className="btn btn-default btn-lg"
-            onClick={this.reset}
-          >
-            <span className="glyphicon glyphicon-refresh" />
-          </button>
-        </abbr>
+        <span className="unbreakable">
+          <input
+            className="form-control input-lg"
+            type="Text"
+            placeholder="Chapter name"
+            name="itemName"
+            onChange={this.defineState}
+          />
+          <abbr title="Chapter number"><input type="number" className="form-control input-lg" name="chapterNumber" defaultValue="0" min="0" onChange={this.defineState} /></abbr>
+          <abbr title="Chapters step (1 par 1, 0,5 par 0,5, etc.)"><input type="number" className="form-control input-lg" name="step" step="0.1" defaultValue="1" min="0.1" onChange={this.defineState} /></abbr>
+        </span>
+        <span className="unbreakable">
+          <abbr title="Add your line ! :)">
+            <button
+              className="btn btn-success btn-lg"
+              id="lineName"
+              name="lineName"
+              onClick={this.addItem}
+            >
+              <span className="glyphicon glyphicon-ok" />
+            </button>
+          </abbr>
+          <abbr title="Erase the form... :/">
+            <button
+              className="btn btn-default btn-lg"
+              onClick={this.reset}
+            >
+              <span className="glyphicon glyphicon-refresh" />
+            </button>
+          </abbr>
+        </span>
       </div>
 
     );
@@ -76,9 +80,5 @@ class Adder extends React.Component {
 Adder.propTypes = {
   addItem: PropTypes.func.isRequired,
 };
-
-// Adder.defaultProps = {
-//   addLine: () => console.log('coucou'),
-// };
 
 export default Adder;
