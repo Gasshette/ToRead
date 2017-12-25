@@ -43,7 +43,7 @@ class ListHolder extends React.Component {
             </button>
           </div>
 
-          <div className="flex-content">{item.name}</div>
+          <div className="flex-content"><abbr title={item.name}><span className="unbreakable">{item.name}</span></abbr></div>
           <div className="flext-content"><input type="number" step={item.step} className="form-control" name="chapter-number" defaultValue={item.chapterNumber} onChange={this.update} /></div>
         </div>
       </li>
